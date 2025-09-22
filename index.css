@@ -1,6 +1,10 @@
 /* @import url('../src/fonts/font-awesome.css'); */
 @import url('/src/fonts/font-awesome.css');
 
+* {
+	box-sizing: border-box;
+}
+
 :root {
 	--accent-color-hue: 236;
 	--accent-color-saturation: 100%;
@@ -14,6 +18,13 @@ body {
 		'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background-color: #405060;
+}
+
+html,
+body,
+#root {
+	height: 100%;
 }
 
 code {
