@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { Header } from './components';
-// import { Logo } from './components';
 import '../index.css';
 
 const AppColumn = styled.div`
