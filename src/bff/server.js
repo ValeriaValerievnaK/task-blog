@@ -1,6 +1,6 @@
 import { getUser } from './get-user';
 import { addUser } from './add-user';
-import { createSession } from './create-session';
+import { sessions } from './sessions';
 
 export const server = {
 	async authorize(authLogin, authPassword) {
@@ -22,7 +22,12 @@ export const server = {
 
 		return {
 			error: null,
-			res: createSession(user.role_id),
+			res: {
+				id: user.id,
+				login: user.login,
+				roleId: user.role_id,
+				session: sessions.create(user),
+			},
 		};
 	},
 
@@ -38,6 +43,18 @@ export const server = {
 
 		await addUser(regLogin, regPassword);
 
-		return { error: null, res: createSession(user.role_id) };
+		return {
+			error: null,
+			res: {
+				id: user.id,
+				login: user.login,
+				roleId: user.role_id,
+				session: sessions.create(user),
+			},
+		};
+	},
+
+	async logout(session) {
+		sessions.remove(session);
 	},
 };

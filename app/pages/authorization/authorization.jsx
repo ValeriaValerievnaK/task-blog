@@ -1,10 +1,12 @@
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { server } from '../../../src/bff';
 import { useState } from 'react';
 import { Input, Button, H2 } from '../../components';
 import { Link } from 'react-router-dom';
+import { setUser } from '../../../src/actions';
 import styled from 'styled-components';
 
 const authFormSchema = yup.object().shape({
@@ -41,6 +43,8 @@ const ErrorMassage = styled.div`
 const AuthorizationContainer = ({ className }) => {
 	const [serverError, setServerError] = useState(null);
 
+	const dispatch = useDispatch();
+
 	const {
 		register,
 		handleSubmit,
@@ -57,7 +61,10 @@ const AuthorizationContainer = ({ className }) => {
 		server.authorize(login, password).then(({ error, res }) => {
 			if (error) {
 				setServerError(`Ошибка запроса: ${error}`);
+				return;
 			}
+
+			dispatch(setUser(res));
 		});
 	};
 
