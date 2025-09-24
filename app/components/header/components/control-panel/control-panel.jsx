@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Icon } from '../../../../components';
+import { Icon, Button } from '../../../../components';
 import styled from 'styled-components';
 
 const RightAligned = styled.div`
@@ -7,18 +7,7 @@ const RightAligned = styled.div`
 	justify-content: flex-end;
 `;
 
-const StyledLink = styled(Link)`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 18px;
-	height: 32px;
-	width: 100px;
-	border: 1px solid #000;
-	background-color: #eee;
-`;
-
-const StyledButton = styled.div`
+const StyledIcon = styled.div`
 	&:hover {
 		cursor: pointer;
 	}
@@ -30,12 +19,14 @@ const ControlPaneldContainer = ({ className }) => {
 	return (
 		<div className={className}>
 			<RightAligned>
-				<StyledLink to="/login">Войти</StyledLink>
+				<Button>
+					<Link to="/login">Войти</Link>
+				</Button>
 			</RightAligned>
 			<RightAligned>
-				<StyledButton onClick={() => navigate(-1)}>
+				<StyledIcon onClick={() => navigate(-1)}>
 					<Icon id="fa-angle-double-left" margin="10px 0 0 0" />
-				</StyledButton>
+				</StyledIcon>
 				<Link to="/post">
 					<Icon id="fa-newspaper-o" margin="10px 0 0 16px" />
 				</Link>
@@ -48,3 +39,5 @@ const ControlPaneldContainer = ({ className }) => {
 };
 
 export const ControlPanel = styled(ControlPaneldContainer)``;
+
+// проверить нужен ли стилизованный компонент
