@@ -1,5 +1,5 @@
 import { removeComment } from './session';
-import { ROLE } from '../constsns';
+import { ROLE } from '../constans';
 
 export const createSession = (roleId) => {
 	const session = {

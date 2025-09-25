@@ -1,24 +1,26 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Icon } from '../../../../components';
+import { useSelector, useDispatch } from 'react-redux';
+import { Icon, Button } from '../../../../components';
+import { ROLE } from '../../../../../src/constans';
+import {
+	selectUserRole,
+	selectUserLogin,
+	selectUserSession,
+} from '../../../../../src/selectore';
+import { logout } from '../../../../../src/actions';
 import styled from 'styled-components';
 
 const RightAligned = styled.div`
 	display: flex;
 	justify-content: flex-end;
-`;
-
-const StyledLink = styled(Link)`
-	display: flex;
-	justify-content: center;
 	align-items: center;
+`;
+const UserName = styled.div`
 	font-size: 18px;
-	height: 32px;
-	width: 100px;
-	border: 1px solid #000;
-	background-color: #eee;
+	font-weight: bold;
 `;
 
-const StyledButton = styled.div`
+const StyledIcon = styled.div`
 	&:hover {
 		cursor: pointer;
 	}
@@ -26,16 +28,35 @@ const StyledButton = styled.div`
 
 const ControlPaneldContainer = ({ className }) => {
 	const navigate = useNavigate();
+	const roleId = useSelector(selectUserRole);
+	const login = useSelector(selectUserLogin);
+	const dispatch = useDispatch();
+	const session = useSelector(selectUserSession);
 
 	return (
 		<div className={className}>
 			<RightAligned>
-				<StyledLink to="/login">Войти</StyledLink>
+				{roleId === ROLE.GUEST ? (
+					<Button>
+						<Link to="/login">Войти</Link>
+					</Button>
+				) : (
+					<>
+						<UserName>{login}</UserName>
+						<StyledIcon>
+							<Icon
+								id="fa-times"
+								margin="0 0 0 10px"
+								onClick={() => dispatch(logout(session))}
+							/>
+						</StyledIcon>
+					</>
+				)}
 			</RightAligned>
 			<RightAligned>
-				<StyledButton onClick={() => navigate(-1)}>
+				<StyledIcon onClick={() => navigate(-1)}>
 					<Icon id="fa-angle-double-left" margin="10px 0 0 0" />
-				</StyledButton>
+				</StyledIcon>
 				<Link to="/post">
 					<Icon id="fa-newspaper-o" margin="10px 0 0 16px" />
 				</Link>
@@ -48,3 +69,5 @@ const ControlPaneldContainer = ({ className }) => {
 };
 
 export const ControlPanel = styled(ControlPaneldContainer)``;
+
+// проверить нужен ли стилизованный компонент
