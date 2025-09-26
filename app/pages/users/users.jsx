@@ -1,25 +1,49 @@
-import styled from 'styled-components';
-import { H2 } from '../../components';
+import { useEffect, useState } from 'react';
+import { Content, H2 } from '../../components';
 import { TableRow, UserRow } from './components';
-import { useDispatch } from 'react-redux';
+import { useServerRequest } from '../../../src/hooks';
+import styled from 'styled-components';
 
 const UsersContainer = ({ className }) => {
-	const dispatch = useDispatch();
-	const users = [];
+	const [users, setUsers] = useState([]);
+	const [roles, setRoles] = useState([]);
+	const [errorMessage, setErrorMessage] = useState(null);
+	const requestServer = useServerRequest();
+
+	useEffect(() => {
+		Promise.all([requestServer('fetchUsers'), requestServer('fetchRoles')]).then(
+			([usersRes, rolesRes]) => {
+				if (usersRes.error || rolesRes.error) {
+					setErrorMessage(usersRes.error || rolesRes.error);
+					return;
+				}
+
+				setUsers(usersRes);
+				setRoles(rolesRes);
+			},
+		);
+	}, [requestServer]);
 
 	return (
 		<div className={className}>
-			<H2>Пользователи</H2>
-			<div>
-				<TableRow>
-					<div className="login-column">Логин</div>
-					<div className="registeredAd-column">Дата регистрации</div>
-					<div className="roleId-column">Роль</div>
-				</TableRow>
-				{users.map(({ login, registeredAd, roleId }) => (
-					<UserRow login={login} registeredAd={registeredAd} roleId={roleId} />
-				))}
-			</div>
+			<Content error={errorMessage}>
+				<H2>Пользователи</H2>
+				<div>
+					<TableRow>
+						<div className="login-column">Логин</div>
+						<div className="registeredAd-column">Дата регистрации</div>
+						<div className="roleId-column">Роль</div>
+					</TableRow>
+					{users.map(({ login, registeredAd, roleId }) => (
+						<UserRow
+							login={login}
+							registeredAd={registeredAd}
+							roleId={roleId}
+							roles={roles}
+						/>
+					))}
+				</div>
+			</Content>
 		</div>
 	);
 };
