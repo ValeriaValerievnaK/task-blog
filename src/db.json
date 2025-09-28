@@ -8,25 +8,11 @@
       "role_id": 0
     },
     {
-      "id": "e611",
-      "login": "ivan",
-      "password": "qwerty123",
-      "registed_at": "2025-09-25",
-      "role_id": 2
-    },
-    {
-      "id": "97e2",
-      "login": "Vika",
-      "password": "qwerty123",
-      "registed_at": "2025-09-25",
-      "role_id": 2
-    },
-    {
       "id": "2310",
       "login": "kolya",
       "password": "qwerty123",
       "registed_at": "2025-09-25",
-      "role_id": 2
+      "role_id": 0
     }
   ],
   "roles": [
