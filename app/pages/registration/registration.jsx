@@ -59,6 +59,7 @@ const RegistrationContainer = ({ className }) => {
 		server.register(login, password).then(({ error, res }) => {
 			if (error) {
 				setServerError(`Ошибка запроса: ${error}`);
+
 				return;
 			}
 

@@ -13,6 +13,41 @@
       "password": "qwerty123",
       "registed_at": "2025-09-25",
       "role_id": 0
+    },
+    {
+      "id": "7b1c",
+      "login": "Vika",
+      "password": "qwe123",
+      "registed_at": "2025-09-29",
+      "role_id": 1
+    },
+    {
+      "id": "17fc",
+      "login": "VikaForTesting",
+      "password": "qwe123",
+      "registed_at": "2025-09-29",
+      "role_id": 2
+    },
+    {
+      "id": "e301",
+      "login": "yyy",
+      "password": "qwe123",
+      "registed_at": "2025-09-29",
+      "role_id": 2
+    },
+    {
+      "id": "82f1",
+      "login": "roma",
+      "password": "qwe123",
+      "registed_at": "2025-09-29",
+      "role_id": 2
+    },
+    {
+      "id": "7068",
+      "login": "motya123",
+      "password": "qwe123",
+      "registed_at": "2025-09-29",
+      "role_id": 2
     }
   ],
   "roles": [
