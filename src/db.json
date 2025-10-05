@@ -36,13 +36,6 @@
       "role_id": 2
     },
     {
-      "id": "82f1",
-      "login": "roma",
-      "password": "qwe123",
-      "registed_at": "2025-09-29",
-      "role_id": 2
-    },
-    {
       "id": "7068",
       "login": "motya123",
       "password": "qwe123",
@@ -93,102 +86,25 @@
   ],
   "comments": [
     {
-      "id": "98d0",
+      "id": "4e18",
       "author_id": "001",
       "post_id": "001",
-      "registed_at": "2025-10-03"
-    },
-    {
-      "id": "fca9",
-      "author_id": "001",
-      "post_id": "001",
-      "registed_at": "2025-10-03"
-    },
-    {
-      "id": "ac41",
-      "author_id": "001",
-      "post_id": "001",
-      "registed_at": "2025-10-03"
-    },
-    {
-      "id": "a748",
-      "author_id": "001",
-      "post_id": "001",
-      "registed_at": "2025-10-03"
-    },
-    {
-      "id": "d18a",
-      "author_id": "001",
-      "post_id": "001",
-      "registed_at": "2025-10-03"
-    },
-    {
-      "id": "a928",
-      "author_id": "001",
-      "post_id": "001",
-      "registed_at": "2025-10-03"
-    },
-    {
-      "id": "3d8b",
-      "author_id": "001",
-      "post_id": "001",
-      "registed_at": "2025-10-03"
-    },
-    {
-      "id": "6f16",
-      "author_id": "001",
-      "post_id": "001",
-      "registed_at": "2025-10-03"
-    },
-    {
-      "id": "69d5",
-      "author_id": "001",
-      "post_id": "001",
-      "registed_at": "2025-10-03"
-    },
-    {
-      "id": "ed22",
-      "author_id": "001",
-      "post_id": "001",
-      "registed_at": "2025-10-03"
-    },
-    {
-      "id": "d005",
-      "author_id": "001",
-      "post_id": "001",
-      "registed_at": "2025-10-03"
-    },
-    {
-      "id": "2fda",
-      "author_id": "001",
-      "post_id": "001",
-      "registed_at": "2025-10-03"
-    },
-    {
-      "id": "a6cf",
-      "author_id": "001",
-      "post_id": "001",
-      "registed_at": "2025-10-03"
-    },
-    {
-      "id": "943a",
-      "author_id": "001",
-      "post_id": "001",
-      "registed_at": "2025-10-03"
-    },
-    {
-      "id": "cfa8",
-      "author_id": "001",
-      "post_id": "001",
-      "content": "xxx",
-      "registed_at": "2025-10-03"
-    },
-    {
-      "id": "f6e7",
-      "author_id": "001",
-      "post_id": "001",
-      "content": "s",
+      "content": "Логин",
       "published_at": "2025-10-03"
+    },
+    {
+      "id": "2afb",
+      "author_id": "001",
+      "post_id": "001",
+      "content": "hhh",
+      "published_at": "2025-10-03"
+    },
+    {
+      "id": "f3bd",
+      "author_id": "001",
+      "post_id": "001",
+      "content": "Проверка логина",
+      "published_at": "2025-10-04"
     }
   ],
   "sessions": [
@@ -239,6 +155,17 @@
     {
       "id": "76eb",
       "hash": "0.80752822901327303561913595331134274601936340332031",
+      "user": {
+        "id": "001",
+        "login": "Lera",
+        "password": "qwerty123",
+        "registeredAd": "2050-09-22",
+        "roleId": 0
+      }
+    },
+    {
+      "id": "abb8",
+      "hash": "0.76408687961492871565383211418520659208297729492188",
       "user": {
         "id": "001",
         "login": "Lera",
