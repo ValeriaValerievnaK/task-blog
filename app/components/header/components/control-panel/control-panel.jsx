@@ -68,5 +68,3 @@ const ControlPaneldContainer = ({ className }) => {
 };
 
 export const ControlPanel = styled(ControlPaneldContainer)``;
-
-// проверить нужен ли стилизованный компонент
