@@ -9,7 +9,7 @@ export const removePostComment = async (hash, id, postId) => {
 
 	if (!access) {
 		return {
-			error: 'Авторизуйтесь, что бы написать комментарий',
+			error: 'Недостаточно прав',
 			res: null,
 		};
 	}

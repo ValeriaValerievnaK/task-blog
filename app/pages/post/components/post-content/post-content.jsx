@@ -14,6 +14,7 @@ const PostContentContainer = ({
 			<img src={imageUrl || '/placeholder-image.jpg'} alt={title} />
 			<H2>{title}</H2>
 			<SpecialPanel
+				id={id}
 				publishedAt={publishedAt}
 				margin="-20px 0 20px"
 				editButton={

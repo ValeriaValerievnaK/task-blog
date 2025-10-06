@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import { useParams, useMatch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Comments, PostContent, PostForm } from './components';
 import { useServerRequest } from '../../../src/hooks';
 import styled from 'styled-components';
-import { loadPostAsync } from '../../../src/actions';
+import { loadPostAsync, RESET_POST_DATA } from '../../../src/actions';
 import { selectPost } from '../../../src/selectore';
 
 const PostContainer = ({ className }) => {
@@ -14,10 +14,13 @@ const PostContainer = ({ className }) => {
 	const requestServer = useServerRequest();
 	const post = useSelector(selectPost);
 
+	useLayoutEffect(() => {
+		dispatch(RESET_POST_DATA);
+	}, [dispatch]);
+
 	useEffect(() => {
 		dispatch(loadPostAsync(requestServer, param.id));
 	}, [dispatch, requestServer, param.id]);
-
 
 	return (
 		<div className={className}>
