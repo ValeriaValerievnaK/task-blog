@@ -1,41 +1,49 @@
 import { useEffect, useState } from 'react';
 import { useServerRequest } from '../../../src/hooks';
-import { PostCard } from './components';
+import { Pagination, PostCard } from './components';
 import styled from 'styled-components';
+import { PAGINATION_LIMIT } from '../../../src/constans';
 
 const MainContainer = ({ className }) => {
 	const [posts, setPosts] = useState([]);
+	const [page, setPage] = useState(1);
+	const [lastPage, setLastPage] = useState(1);
 	const requestServer = useServerRequest();
 
 	useEffect(() => {
-		requestServer('fetchPosts').then((posts) => {
-			setPosts(posts.res);
-		});
-	}, [requestServer]);
+		requestServer('fetchPosts', page, PAGINATION_LIMIT).then(
+			({ res: { posts, lastPage } }) => {
+				setPosts(posts);
+				setLastPage(lastPage);
+			},
+		);
+	}, [requestServer, page]);
 
 	return (
-		<div className={className}><div className="post-list">
-			{posts.map(({ id, title, imageUrl, publishedAt, commentsCount }) => (
-				<PostCard
-					key={id}
-					id={id}
-					title={title}
-					imageUrl={imageUrl}
-					publishedAt={publishedAt}
-					commentsCount={commentsCount}
-				></PostCard>
-			))}
+		<div className={className}>
+			<div className="post-list">
+				{posts.map(({ id, title, imageUrl, publishedAt, commentsCount }) => (
+					<PostCard
+						key={id}
+						id={id}
+						title={title}
+						imageUrl={imageUrl}
+						publishedAt={publishedAt}
+						commentsCount={commentsCount}
+					></PostCard>
+				))}
 			</div>
+			{lastPage > 1 && (
+				<Pagination page={page} lastPage={lastPage} setPage={setPage} />
+			)}
 		</div>
 	);
 };
 
 export const Main = styled(MainContainer)`
-
 	& .post-list {
 		display: flex;
 		flex-wrap: wrap;
-		padding: 20px
-		
+		padding: 20px;
 	}
 `;
