@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { Button, Icon } from '../../../../components';
-import { Link } from 'react-router-dom';
+import { Button } from '../../../../components';
 
 const PaginationContainer = ({ className, page, lastPage, setPage }) => {
 	return (
@@ -25,6 +24,9 @@ const PaginationContainer = ({ className, page, lastPage, setPage }) => {
 export const Pagination = styled(PaginationContainer)`
 	display: flex;
 	justify-content: center;
+	position: absolute;
+	bottom: 140px;
+	width: 100%;
 	margin: 0 0 20px;
 	padding: 0 35px;
 
