@@ -3,7 +3,7 @@ import { useServerRequest } from '../../../src/hooks';
 import { Pagination, PostCard, Search } from './components';
 import styled from 'styled-components';
 import { PAGINATION_LIMIT } from '../../../src/constans';
-import { debounce } from './components/utils/deboune';
+import { debounce, getLastPageFormLins } from './components/utils';
 
 const MainContainer = ({ className }) => {
 	const [posts, setPosts] = useState([]);
@@ -15,9 +15,9 @@ const MainContainer = ({ className }) => {
 
 	useEffect(() => {
 		requestServer('fetchPosts', searchPhrase, page, PAGINATION_LIMIT).then(
-			({ res: { posts, lastPage } }) => {
+			({ res: { posts, links } }) => {
 				setPosts(posts);
-				setLastPage(lastPage);
+				setLastPage(getLastPageFormLins(links));
 			},
 		);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
