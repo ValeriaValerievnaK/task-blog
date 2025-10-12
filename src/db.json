@@ -367,6 +367,17 @@
         "registeredAd": "2050-09-22",
         "roleId": 0
       }
+    },
+    {
+      "hash": "0.09368553680578628473085700534284114837646484375000",
+      "user": {
+        "id": "001",
+        "login": "Lera",
+        "password": "qwerty123",
+        "registeredAd": "2050-09-22",
+        "roleId": 0
+      },
+      "id": "0z3E5Au"
     }
   ]
 }
