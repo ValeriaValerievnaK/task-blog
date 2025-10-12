@@ -1,12 +1,12 @@
-import { Routes, Route } from 'react-router-dom';
-import styled from 'styled-components';
-import { Header, Footer, Modal, Error } from './components';
-import { Authorization, Main, Post, Registration, Users } from './pages';
-import '../index.css';
 import { useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setUser } from '../src/actions';
+import { Routes, Route } from 'react-router-dom';
+import { Header, Footer, Modal, Error } from './components';
+import { Authorization, Main, Post, Registration, Users } from './pages';
 import { ERROR } from '../src/constans';
+import { setUser } from '../src/actions';
+import '../index.css';
+import styled from 'styled-components';
 
 const AppColumn = styled.div`
 	display: flex;

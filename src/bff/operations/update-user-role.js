@@ -1,6 +1,6 @@
-import { ROLE } from '../constans';
 import { setUserRole } from '../api';
 import { sessions } from '../sessions';
+import { ROLE } from '../constans';
 
 export const updateUserRole = async (hash, userId, newUserRoleId) => {
 	const accessRoles = [ROLE.ADMIN];

@@ -1,7 +1,7 @@
 import { addComment, getPost } from '../api';
-import { ROLE } from '../constans';
 import { sessions } from '../sessions';
 import { getPostCommentsWithAuthor } from '../utils';
+import { ROLE } from '../constans';
 
 export const addPostComment = async (hash, userId, postId, content) => {
 	const accessRoles = [ROLE.ADMIN, ROLE.MODERATOR, ROLE.READER];

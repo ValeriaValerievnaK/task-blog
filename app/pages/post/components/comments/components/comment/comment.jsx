@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Icon } from '../../../../../../components';
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import {
 	CLOSE_MODAL,
 	openModal,
@@ -9,6 +8,8 @@ import {
 import { useServerRequest } from '../../../../../../../src/hooks';
 import { ROLE } from '../../../../../../../src/constans';
 import { selectUserRole } from '../../../../../../../src/selectore';
+import { Icon } from '../../../../../../components';
+import styled from 'styled-components';
 
 const CommentContainer = ({ className, postId, id, author, content, publishedAt }) => {
 	const dispatch = useDispatch();
@@ -92,3 +93,11 @@ export const Comment = styled(CommentContainer)`
 		display: flex;
 	}
 `;
+
+Comment.propTypes = {
+	postId: PropTypes.string.isRequired,
+	id: PropTypes.number.isRequired,
+	author: PropTypes.string.isRequired,
+	content: PropTypes.string.isRequired,
+	publishedAt: PropTypes.string.isRequired,
+};

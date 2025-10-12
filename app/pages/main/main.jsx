@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useServerRequest } from '../../../src/hooks';
-import { Pagination, PostCard, Search } from './components';
-import styled from 'styled-components';
 import { PAGINATION_LIMIT } from '../../../src/constans';
-import { debounce, getLastPageFormLins } from './components/utils';
+import { Pagination, PostCard, Search } from './components';
+import { debounce, getLastPageFormLins } from './utils';
+import styled from 'styled-components';
 
 const MainContainer = ({ className }) => {
 	const [posts, setPosts] = useState([]);

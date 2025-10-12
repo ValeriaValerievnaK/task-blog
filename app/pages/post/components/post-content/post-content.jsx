@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import { PROP_TYPE } from '../../../../../src/constans';
 import { H2, Icon } from '../../../../components';
 import { SpecialPanel } from '../special-panel/special-panel';
-import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 const PostContentContainer = ({
 	post: { id, title, imageUrl, content, publishedAt },
@@ -44,3 +45,7 @@ export const PostContent = styled(PostContentContainer)`
 		white-space: pre-wrap;
 	}
 `;
+
+PostContent.propTypes = {
+	post: PROP_TYPE.POST.isRequired,
+};

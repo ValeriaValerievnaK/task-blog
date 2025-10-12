@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const ButtonContainer = ({ children, className, ...props }) => {
+// eslint-disable-next-line no-unused-vars
+const ButtonContainer = ({ children, className, width, ...props }) => {
 	return (
 		<button className={className} {...props}>
 			{children}
@@ -22,3 +24,8 @@ export const Button = styled(ButtonContainer)`
 		cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
 	}
 `;
+
+Button.propTypes = {
+	children: PropTypes.node.isRequired,
+	width: PropTypes.string,
+};

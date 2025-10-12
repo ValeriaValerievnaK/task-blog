@@ -1,7 +1,7 @@
 import { deleteComment, getPost } from '../api';
-import { ROLE } from '../constans';
 import { sessions } from '../sessions';
 import { getPostCommentsWithAuthor } from '../utils';
+import { ROLE } from '../constans';
 
 export const removePostComment = async (hash, id, postId) => {
 	const accessRoles = [ROLE.ADMIN, ROLE.MODERATOR];
