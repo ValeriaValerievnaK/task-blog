@@ -12,7 +12,7 @@ const PostContentContainer = ({
 
 	return (
 		<div className={className}>
-			<img src={imageUrl || ''} alt={title} />
+			<img src={imageUrl} alt={title} />
 			<H2>{title}</H2>
 			<SpecialPanel
 				id={id}
