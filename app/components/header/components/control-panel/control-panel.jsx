@@ -8,6 +8,7 @@ import {
 	selectUserSession,
 } from '../../../../../src/selectore';
 import { logout } from '../../../../../src/actions';
+import { checkAccess } from '../../../../../src/utils';
 import styled from 'styled-components';
 
 const RightAligned = styled.div`
@@ -20,18 +21,19 @@ const UserName = styled.div`
 	font-weight: bold;
 `;
 
-const StyledIcon = styled.div`
-	&:hover {
-		cursor: pointer;
-	}
-`;
-
 const ControlPaneldContainer = ({ className }) => {
 	const navigate = useNavigate();
 	const roleId = useSelector(selectUserRole);
 	const login = useSelector(selectUserLogin);
 	const dispatch = useDispatch();
 	const session = useSelector(selectUserSession);
+
+	const onLogout = () => {
+		dispatch(logout(session));
+		sessionStorage.removeItem('userData');
+	};
+
+	const isAdmin = checkAccess([ROLE.ADMIN], roleId);
 
 	return (
 		<div className={className}>
@@ -43,31 +45,29 @@ const ControlPaneldContainer = ({ className }) => {
 				) : (
 					<>
 						<UserName>{login}</UserName>
-						<StyledIcon>
-							<Icon
-								id="fa-times"
-								margin="0 0 0 10px"
-								onClick={() => dispatch(logout(session))}
-							/>
-						</StyledIcon>
+						<Icon id="fa-times" margin="0 0 0 10px" onClick={onLogout} />
 					</>
 				)}
 			</RightAligned>
 			<RightAligned>
-				<StyledIcon onClick={() => navigate(-1)}>
-					<Icon id="fa-angle-double-left" margin="10px 0 0 0" />
-				</StyledIcon>
-				<Link to="/post">
-					<Icon id="fa-newspaper-o" margin="10px 0 0 16px" />
-				</Link>
-				<Link to="/users">
-					<Icon id="fa-users" margin="10px 0 0 16px" />
-				</Link>
+				<Icon
+					id="fa-angle-double-left"
+					margin="10px 0 0 0"
+					onClick={() => navigate(-1)}
+				/>
+				{isAdmin && (
+					<>
+						<Link to="/post">
+							<Icon id="fa-newspaper-o" margin="10px 0 0 16px" />
+						</Link>
+						<Link to="/users">
+							<Icon id="fa-users" margin="10px 0 0 16px" />
+						</Link>
+					</>
+				)}
 			</RightAligned>
 		</div>
 	);
 };
 
 export const ControlPanel = styled(ControlPaneldContainer)``;
-
-// проверить нужен ли стилизованный компонент

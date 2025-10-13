@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { ControlPanel, Logo } from './components';
+import styled from 'styled-components';
 
 const Discription = styled.div`
 	font-style: italic;
@@ -29,4 +29,5 @@ export const Header = styled(HeaderContainer)`
 	padding: 20px 40px;
 	box-shadow: 0px 0px 15px #000;
 	background-color: #fff;
+	z-index: 10;
 `;

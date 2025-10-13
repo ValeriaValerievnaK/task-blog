@@ -5,11 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { server } from '../../../src/bff';
-import { Input, Button, H2, ErrorMessage } from '../../components';
 import { useResetForm } from '../../../src/hooks';
 import { setUser } from '../../../src/actions';
 import { selectUserRole } from '../../../src/selectore';
 import { ROLE } from '../../../src/constans';
+import { Input, Button, H2, ErrorMessage } from '../../components';
 import styled from 'styled-components';
 
 const authFormSchema = yup.object().shape({
@@ -64,6 +64,7 @@ const AuthorizationContainer = ({ className }) => {
 			}
 
 			dispatch(setUser(res));
+			sessionStorage.setItem('userData', JSON.stringify(res));
 		});
 	};
 
