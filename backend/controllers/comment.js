@@ -19,7 +19,6 @@ async function deleteComment(postId, commentId) {
   await Post.findByIdAndUpdate(postId, { $pull: { comments: commentId } });
 }
 
-
 module.exports = {
   addComment,
   deleteComment,

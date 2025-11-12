@@ -13,7 +13,7 @@ async function addPost(post) {
 }
 
 // edit
-async function editPost(post) {
+async function editPost(id, post) {
   const newPost = await Post.findByIdAndUpdate(id, post, {
     returnDocument: "after",
   });
