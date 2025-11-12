@@ -7,6 +7,7 @@ import { PROP_TYPE, ROLE } from '../../../../../src/constans';
 import { Icon } from '../../../../components';
 import { Comment } from './components';
 import styled from 'styled-components';
+import { formatDate } from '../../../../../src/utils';
 
 const CommentsContainer = ({ className, comments, postId }) => {
 	const [newComment, setNewComment] = useState('');
@@ -48,7 +49,7 @@ const CommentsContainer = ({ className, comments, postId }) => {
 						id={id}
 						author={author}
 						content={content}
-						publishedAt={publishedAt}
+						publishedAt={formatDate(publishedAt)}
 					/>
 				))}
 			</div>

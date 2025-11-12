@@ -3,6 +3,7 @@ import { PROP_TYPE } from '../../../../../src/constans';
 import { H2, Icon } from '../../../../components';
 import { SpecialPanel } from '../special-panel/special-panel';
 import styled from 'styled-components';
+import { formatDate } from '../../../../../src/utils';
 
 const PostContentContainer = ({
 	post: { id, title, imageUrl, content, publishedAt },
@@ -16,7 +17,7 @@ const PostContentContainer = ({
 			<H2>{title}</H2>
 			<SpecialPanel
 				id={id}
-				publishedAt={publishedAt}
+				publishedAt={formatDate(publishedAt)}
 				margin="-20px 0 20px"
 				editButton={
 					<Icon

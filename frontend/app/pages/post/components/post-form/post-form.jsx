@@ -7,6 +7,7 @@ import { SpecialPanel } from '../special-panel/special-panel';
 import { Icon, Input } from '../../../../components';
 import { sanitizeContent } from './utils';
 import styled from 'styled-components';
+import { formatDate } from '../../../../../src/utils';
 
 const PostFormContainer = ({
 	post: { id, title, imageUrl, content, publishedAt },
@@ -53,7 +54,7 @@ const PostFormContainer = ({
 			/>
 			<SpecialPanel
 				id={id}
-				publishedAt={publishedAt}
+				publishedAt={formatDate(publishedAt)}
 				margin="20px 0"
 				editButton={
 					<Icon

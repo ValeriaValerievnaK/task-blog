@@ -3,7 +3,7 @@ import { PAGINATION_LIMIT } from '../../../src/constans';
 import { Pagination, PostCard, Search } from './components';
 import { debounce } from './utils';
 import styled from 'styled-components';
-import { request } from '../../../src/utils';
+import { formatDate, request } from '../../../src/utils';
 
 const MainContainer = ({ className }) => {
 	const [posts, setPosts] = useState([]);
@@ -40,7 +40,7 @@ const MainContainer = ({ className }) => {
 							id={id}
 							title={title}
 							imageUrl={imageUrl}
-							publishedAt={publishedAt}
+							publishedAt={formatDate(publishedAt)}
 							commentsCount={comments.length}
 						></PostCard>
 					))}
